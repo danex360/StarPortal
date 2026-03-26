@@ -1,0 +1,62 @@
+# StarPortal Configuration
+
+# Plugin Language (en or es)
+language: "en"
+
+portal-settings:
+  # Time in ticks (20 ticks = 1 sec) for the charging effect
+  charge-time-ticks: 60
+  
+  # Total duration of the connection in seconds
+  duration-seconds: 120
+  
+  # Cooldown before the same portal can dial again (seconds)
+  dialing-cooldown-seconds: 30
+  
+  # How often to consume pearls while active (seconds)
+  periodic-interval-seconds: 30
+  
+  # Auto-shutdown after X seconds of no activity (-1 to disable)
+  inactivity-shutdown-seconds: 10
+  
+  # Cost in Ender Pearls to start a connection
+  initial-pearl-cost: 2
+  
+  # Cost in Ender Pearls per interval
+  periodic-pearl-cost: 1
+  
+  # Cost for interdimensional connections (different worlds)
+  interdimensional-initial-pearl-cost: 4
+  interdimensional-periodic-pearl-cost: 2
+
+  # Max pearls a portal can store
+  max-pearl-balance: 64
+
+  # Threshold in seconds for the red blinking effect
+  blinking-threshold-seconds: 10
+  
+  # Max distance for the Lectern to find a portal
+  lectern-distance: 7
+  
+  # Min distance between portals
+  min-distance: 20
+
+  # Max portals a single player can own (-1 for infinite)
+  max-portals-per-player: 5
+
+# Iris security features
+iris-settings:
+  # Whether the Iris feature is enabled
+  enabled: true
+
+  # Material for the Iris item
+  item-material: "NETHERITE_BLOCK"
+  
+  # Options: NOTHING_PASSES (stay at source), PASSES_AND_DIES (teleport and kill)
+  behavior-mode: "NOTHING_PASSES"
+  
+  # Damage dealt to players who hit an active Iris
+  contact-damage: 4.0
+  
+  # Damage dealt to entities if PASSES_AND_DIES is on
+  kill-damage: 1000.0

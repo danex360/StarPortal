@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StarPortal | Official Wiki</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        // Check if URL ends with index.html and clean it up without reload
+        if (window.location.pathname.endsWith('/index.html')) {
+            const cleanUrl = window.location.pathname.replace('/index.html', '/') + window.location.hash;
+            window.history.replaceState(null, '', cleanUrl);
+        }
+    </script>
+</head>
+<body class="lang-en theme-green">
+    <header class="navbar">
+        <div class="nav-left">
+            <button id="menu-toggle" class="mobile-menu-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+            <a href="javascript:void(0)" onclick="navigate('welcome')" class="logo-link">
+                <img src="img/favicon.png" alt="StarPortal Logo" class="brand-logo">
+                <span class="logo-title">STARPORTAL</span>
+            </a>
+            <span class="v-tag">v1.0.0</span>
+        </div>
+        <div class="nav-right">
+            <div class="lang-picker">
+                <button onclick="setLang('en')" id="btn-en" class="active">ENGLISH</button>
+                <button onclick="setLang('es')" id="btn-es">ESPAÑOL</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="app-layout">
+        <div id="sidebar-overlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="side-nav">
+                <div class="nav-label" data-en="CORE SYSTEM" data-es="SISTEMA CENTRAL">CORE SYSTEM</div>
+                <button onclick="navigate('welcome')" class="nav-btn active" id="nav-welcome"><i class="fas fa-home"></i> <span data-en="Dashboard" data-es="Inicio">Dashboard</span></button>
+                <button onclick="navigate('build')" class="nav-btn" id="nav-build"><i class="fas fa-tools"></i> <span data-en="Engineering" data-es="Ingeniería (Const.)">Engineering</span></button>
+                <button onclick="navigate('logic')" class="nav-btn" id="nav-logic"><i class="fas fa-microchip"></i> <span data-en="Dialing Logic" data-es="Lógica de Marcado">Dialing Logic</span></button>
+                <button onclick="navigate('gui')" class="nav-btn" id="nav-gui"><i class="fas fa-th-large"></i> <span data-en="Interface Manual" data-es="Manual Interfaces">Manual Interfaces</span></button>
+                <button onclick="navigate('logistics')" class="nav-btn" id="nav-logistics"><i class="fas fa-truck-loading"></i> <span data-en="Logistics" data-es="Logística">Logística</span></button>
+                
+                <div class="nav-label" data-en="SECURITY" data-es="SEGURIDAD">SECURITY</div>
+                <button onclick="navigate('iris')" class="nav-btn" id="nav-iris"><i class="fas fa-shield-alt"></i> <span data-en="Iris Protection" data-es="Protección Iris">Iris Protection</span></button>
+                <button onclick="navigate('privacy')" class="nav-btn" id="nav-privacy"><i class="fas fa-user-lock"></i> <span data-en="Privacy Modes" data-es="Modos Privados">Privacy Modes</span></button>
+
+                <div class="nav-label" data-en="ADMIN TECHNICAL" data-es="ADMINISTRACIÓN">ADMIN TECHNICAL</div>
+                <button onclick="navigate('config')" class="nav-btn" id="nav-config"><i class="fas fa-file-code"></i> <span data-en="Configuration" data-es="Configuraciones">Configuration</span></button>
+                <button onclick="navigate('perms')" class="nav-btn" id="nav-perms"><i class="fas fa-key"></i> <span data-en="Permissions" data-es="Permisos">Permissions</span></button>
+                <button onclick="navigate('cmds')" class="nav-btn" id="nav-cmds"><i class="fas fa-terminal"></i> <span data-en="Commands" data-es="Comandos">Commands</span></button>
+                <button onclick="navigate('faq')" class="nav-btn" id="nav-faq"><i class="fas fa-question-circle"></i> <span data-en="Troubleshooting" data-es="Errores Comunes">Troubleshooting</span></button>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard -->
+            <section id="welcome" class="page-view">
+                <div class="hero-card">
+                    <h1 class="en">StarPortal Official Wiki</h1>
+                    <h1 class="es">Wiki Oficial de StarPortal</h1>
+                    <p class="en">Welcome to the technical documentation for StarPortal. This system provides a professional, player-managed portal network for your server, featuring balanced economy systems and high-tech defense mechanisms.</p>
+                    <p class="es">Bienvenido a la documentación técnica de StarPortal. Este sistema permite implementar una red de portales profesional gestionada por los propios jugadores, con sistemas de economía equilibrados y mecanismos de defensa avanzados.</p>
+                </div>
+                <div class="grid-3">
+                    <div class="info-box green">
+                        <i class="fas fa-users"></i>
+                        <h3 data-en="Social Hub" data-es="Centro Social">Social Hub</h3>
+                        <p data-en="Perfect for connecting players, friends, and community bases." data-es="Ideal para conectar comunidades, pueblos o bases de amigos.">Perfect for connecting communities.</p>
+                    </div>
+                    <div class="info-box blue">
+                        <i class="fas fa-gem"></i>
+                        <h3 data-en="Energy Based" data-es="Uso de Energía">Energy Based</h3>
+                        <p data-en="Powered by Ender Pearls for a balanced economy." data-es="Alimentado por Perlas de Ender para una economía equilibrada.">Powered by Ender Pearls for a balanced economy.</p>
+                    </div>
+                    <div class="info-box purple">
+                        <i class="fas fa-truck-loading"></i>
+                        <h3 data-en="Logistics" data-es="Logística">Logística</h3>
+                        <p data-en="Automated supply networks using Minecarts and Hoppers." data-es="Redes de transporte automatizado de recursos y suministros.">Automated supply transport.</p>
+                    </div>
+                </div>
+
+                <!-- Download & Compatibility -->
+                <div class="download-section">
+                    <h3 data-en="Compatibility & Downloads" data-es="Compatibilidad y Descargas">Compatibilidad y Descargas</h3>
+                    <div class="compat-badges">
+                        <span class="badge">MC 1.21.X</span>
+                        <span class="badge">BUKKIT</span>
+                        <span class="badge">SPIGOT</span>
+                        <span class="badge">PAPER</span>
+                    </div>
+                    <a href="https://modrinth.com/plugin/starportal" target="_blank" class="btn-modrinth">
+                        <i class="fas fa-download"></i>
+                        <span data-en="Download on Modrinth" data-es="Descargar en Modrinth">Descargar en Modrinth</span>
+                    </a>
+                    <p style="font-size: 0.8rem; margin-top: 15px; opacity: 0.6;" data-en="Join the community and stay updated with the latest releases." data-es="Únete a la comunidad y mantente al tanto de las últimas versiones."></p>
+                </div>
+            </section>
+
+            <!-- Engineering -->
+            <section id="build" class="page-view">
+                <h2 data-en="Portal Engineering" data-es="Ingeniería de Construcción">Portal Engineering</h2>
+                <div class="long-card">
+                    <h3 data-en="1. The Frame Construction" data-es="1. Construcción del Marco">1. The Frame Construction</h3>
+                    <p class="en">The frame is the structural backbone of the portal. It must be built exclusively using <strong>CRYING OBSIDIAN</strong> to ensure link stability.</p>
+                    <p class="es">El marco es el componente estructural del portal. Debe construirse exclusivamente con <strong>OBSIDIANA LLOROSA</strong> para garantizar la estabilidad del enlace.</p>
+                    <div class="spec-list">
+                        <div class="spec-item"><i class="fas fa-check"></i> <span data-en="Frame Size: 5x5 Outer Blocks" data-es="Tamaño: 5x5 bloques exteriores">Frame Size: 5x5 Outer Blocks</span></div>
+                        <div class="spec-item"><i class="fas fa-check"></i> <span data-en="Hole Size: 3x3 Internal Empty Blocks" data-es="Hueco: 3x3 bloques vacíos interiores">Hole Size: 3x3 Internal Empty Blocks</span></div>
+                        <div class="spec-item"><i class="fas fa-check"></i> <span data-en="Orientation: Can face North/South or East/West." data-es="Orientación: Puede mirar al Norte/Sur o Este/Oeste.">Orientation: Can face North/South or East/West.</span></div>
+                    </div>
+                    <h3 data-en="2. The Central Core" data-es="2. El Núcleo Central">2. The Central Core</h3>
+                    <p class="en">Place a <strong>BEACON</strong> in the bottom-center of the 3x3 hole. To register the portal, simply RIGHT-CLICK the beacon once the frame is finished.</p>
+                    <p class="es">Coloca un <strong>BEACON (FARO)</strong> en el centro inferior del hueco 3x3. Para registrarlo, haz CLICK DERECHO una vez terminado el marco.</p>
+                </div>
+            </section>
+
+            <!-- DHD Logic -->
+            <section id="logic" class="page-view">
+                <h2 data-en="Dialing Device (DHD)" data-es="Controlador de Marcado (DHD)">Dialing Device (DHD)</h2>
+                <div class="long-card">
+                    <p class="en">The DHD allows you to manage the destination and energy of the portal. Use a <strong>LECTERN (Atril)</strong> placed within <strong>7 blocks</strong> of the Beacon.</p>
+                    <p class="es">El DHD permite gestionar el destino y la energía del portal. Usa un <strong>ATRIL (Lectern)</strong> colocado a menos de <strong>7 bloques</strong> del Faro.</p>
+                    <h3 data-en="How to Link the DHD" data-es="Cómo vincular el DHD">How to Link the DHD</h3>
+                    <ol class="manual-list en">
+                        <li>Ensure you have a registered portal (Beacon + Frame).</li>
+                        <li>Place a Lectern nearby.</li>
+                        <li>The system will automatically link it and message you: "DHD Linked".</li>
+                        <li>Right-click the Lectern to open the GUI.</li>
+                    </ol>
+                    <ol class="manual-list es">
+                        <li>Asegúrate de tener un portal registrado (Faro + Marco).</li>
+                        <li>Coloca un Atril cerca.</li>
+                        <li>El sistema lo vinculará automáticamente y te dirá: "DHD vinculado".</li>
+                        <li>Haz clic derecho en el Atril para abrir el menú.</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- Iris -->
+            <section id="iris" class="page-view">
+                <h2 data-en="Iris Security System" data-es="Sistema de Seguridad Iris">Iris Security System</h2>
+                <div class="long-card">
+                    <p class="en">The Iris is a dense protective shield that prevents entities and projectiles from crossing the portal event horizon.</p>
+                    <p class="es">El Iris es un escudo protector denso que evita que entidades y proyectiles crucen el horizonte de eventos del portal.</p>
+                    <div class="feature-grid">
+                        <div class="feat">
+                            <h4 data-en="Installation" data-es="Instalación">Installation</h4>
+                            <p class="en">Requires <strong>1 Netherite Block</strong> in your main hand. Accessible via the <strong>Portal Configuration Menu</strong> (Interact with the Beacon core).</p>
+                            <p class="es">Requiere <strong>1 Bloque de Netherite</strong> en la mano principal. Accesible desde el <strong>Menú de Configuración del Portal</strong> (Interactúa con el Beacon/Núcleo).</p>
+                        </div>
+                        <div class="feat">
+                            <h4 data-en="Function" data-es="Función">Función</h4>
+                            <p class="en">When active, the Iris pushes players back and deals contact damage. Entities are instantly disintegrated if damage is set high.</p>
+                            <p class="es">Cuando está activo, el Iris empuja a los jugadores y aplica daño por contacto. Las entidades son desintegradas al instante.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+                       <!-- Configuration (Admin Master Reference) -->
+            <section id="config" class="page-view">
+                <h2 data-en="Admin Technical Reference (Config.yml)" data-es="Referencia Técnica de Admin (Config.yml)">Admin Technical Reference (Config.yml)</h2>
+                <div class="table-card">
+                    <p class="en">This section provides a detailed technical breakdown of every variable in the <code>config.yml</code>. Use this to fine-tune your server's performance and economy.</p>
+                    <p class="es">Esta sección detalla el funcionamiento técnico de cada variable del archivo <code>config.yml</code>. Úsala para ajustar el rendimiento y el equilibrio económico del servidor.</p>
+                    <table>
+                        <thead>
+                            <tr><th data-en="Config Key" data-es="Clave de Config">Config Key</th><th data-en="Default" data-es="Por Defecto">Default</th><th data-en="Technical Breakdown" data-es="Desglose Técnico">Technical Breakdown</th></tr>
+                        </thead>
+                        <tbody>
+                            <!-- Core Settings -->
+                            <tr class="cat-row"><td colspan="3" data-en="SECTION: PORTAL SYSTEM" data-es="SECCIÓN: SISTEMA DE PORTALES">SECTION: PORTAL SYSTEM</td></tr>
+                            <tr>
+                                <td><code>language</code></td>
+                                <td><code>"en"</code></td>
+                                <td data-en="Sets the global message file (plugins/StarPortal/languages/). Options: en, es." data-es="Establece el archivo de mensajes global. Opciones: en, es.">Sets the global message file.</td>
+                            </tr>
+                            <tr>
+                                <td><code>charge-time-ticks</code></td>
+                                <td><code>60</code></td>
+                                <td data-en="The number of ticks (20 ticks = 1 second) the portal waits during the charging phase before allowing teleportation." data-es="Tiempo en ticks (20 ticks = 1 segundo) que el portal tarda en cargarse antes de permitir el teletransporte.">Server ticks used for the sequence.</td>
+                            </tr>
+                            <tr>
+                                <td><code>duration-seconds</code></td>
+                                <td><code>120</code></td>
+                                <td data-en="The maximum amount of time a portal connection remains active before it is automatically severed." data-es="Duración máxima del enlace activo. El portal se cerrará automáticamente al cumplirse este tiempo.">Maximum operational window.</td>
+                            </tr>
+                            <tr>
+                                <td><code>dialing-cooldown-seconds</code></td>
+                                <td><code>30</code></td>
+                                <td data-en="Mandatory safety window between connection attempts to prevent spam-dialing and system saturation." data-es="Tiempo de espera obligatorio entre intentos de marcado para evitar el spam y la saturación del sistema.">Prevention mechanism for spam.</td>
+                            </tr>
+                            <tr>
+                                <td><code>periodic-interval-seconds</code></td>
+                                <td><code>30</code></td>
+                                <td data-en="Defines how often the system checks for fuel (periodic-pearl-cost) while the portal is active." data-es="Frecuencia con la que el sistema comprueba y descuenta el combustible (perlas) mientras el portal está activo.">Cycle time for energy checks.</td>
+                            </tr>
+                            <tr>
+                                <td><code>inactivity-shutdown-seconds</code></td>
+                                <td><code>10</code></td>
+                                <td data-en="Automatic safety shutdown: severs the link if no entity passes through for X seconds. Set to -1 to disable." data-es="Cierre de seguridad automático: desconecta el portal si no cruza ninguna entidad durante X segundos. Usa -1 para desactivarlo.">Auto-kill link on inactivity.</td>
+                            </tr>
+                            
+                            <!-- Economy Settings -->
+                            <tr class="cat-row"><td colspan="3" data-en="SECTION: ECONOMY & COSTS" data-es="SECCIÓN: ECONOMÍA Y COSTES">SECTION: ECONOMY & COSTS</td></tr>
+                            <tr>
+                                <td><code>initial-pearl-cost</code></td>
+                                <td><code>2</code></td>
+                                <td data-en="Upfront cost (Ender Pearls) to establish a link within the same world." data-es="Coste inicial (Perlas de Ender) para establecer un enlace en el mismo mundo.">Upfront cost for same world links.</td>
+                            </tr>
+                            <tr>
+                                <td><code>periodic-pearl-cost</code></td>
+                                <td><code>1</code></td>
+                                <td data-en="Maintenance cost per cycle (periodic-interval-seconds) during an active link." data-es="Coste de mantenimiento por ciclo durante un enlace activo.">Maintenance cost per cycle.</td>
+                            </tr>
+                            <tr>
+                                <td><code>interdimensional-initial-pearl-cost</code></td>
+                                <td><code>4</code></td>
+                                <td data-en="Flat penalty added to links between different worlds (Nether, End, Custom)." data-es="Penalización plana añadida a enlaces entre diferentes mundos.">Penalty for cross-world links.</td>
+                            </tr>
+                            <tr>
+                                <td><code>max-pearl-balance</code></td>
+                                <td><code>64</code></td>
+                                <td data-en="Hard limit for the internal storage of the Beacon core. Prevents hoarding energy." data-es="Límite estricto para el almacenamiento interno del Faro. Evita el acaparamiento de energía.">Hard limit for energy storage.</td>
+                            </tr>
+
+                            <!-- Limits Settings -->
+                            <tr class="cat-row"><td colspan="3" data-en="SECTION: LIMITS & RADII" data-es="SECCIÓN: LÍMITES Y RADIOS">SECTION: LIMITS & RADII</td></tr>
+                            <tr>
+                                <td><code>lectern-distance</code></td>
+                                <td><code>7</code></td>
+                                <td data-en="Scanning radius for linking Core and DHD. Values >15 may impact low-end CPU." data-es="Radio de escaneo para vincular Núcleo y DHD. Valores >15 pueden afectar a CPUs de gama baja.">Scanning radius for linking.</td>
+                            </tr>
+                            <tr>
+                                <td><code>min-distance</code></td>
+                                <td><code>20</code></td>
+                                <td data-en="Minimum blocks between two portal cores. Prevents portal clusters/stpam." data-es="Bloques mínimos entre dos núcleos de portal. Evita clústeres de portales.">Min blocks between cores.</td>
+                            </tr>
+                            <tr>
+                                <td><code>max-portals-per-player</code></td>
+                                <td><code>5</code></td>
+                                <td data-en="Ownership cap. Use -1 for unlimited access (granted to admins by default)." data-es="Límite de propiedad. Usa -1 para acceso ilimitado (por defecto para admins).">Ownership cap per player.</td>
+                            </tr>
+
+                            <!-- Iris Settings -->
+                            <tr class="cat-row"><td colspan="3" data-en="SECTION: IRIS SECURITY" data-es="SECCIÓN: SEGURIDAD IRIS">SECTION: IRIS SECURITY</td></tr>
+                            <tr>
+                                <td><code>behavior-mode</code></td>
+                                <td><code>"NOTHING_PASSES"</code></td>
+                                <td data-en="Determines if entities stay at source (NOTHING_PASSES) or teleport and die (PASSES_AND_DIES)." data-es="Determina si las entidades se quedan en el origen o se teletransportan y mueren.">Teleportation behavior on Iris hit.</td>
+                            </tr>
+                            <tr>
+                                <td><code>contact-damage</code></td>
+                                <td><code>4.0</code></td>
+                                <td data-en="Hearts: half current value (e.g. 4.0 = 2 hearts). Applied when touching an active Iris." data-es="Corazones: la mitad del valor (4.0 = 2 corazones). Se aplica al tocar un Iris activo.">Hearts dealt on Iris contact.</td>
+                            </tr>
+                            <tr>
+                                <td><code>kill-damage</code></td>
+                                <td><code>1000.0</code></td>
+                                <td data-en="Applied ONLY in PASSES_AND_DIES mode to ensure terminal disintegration." data-es="Aplicado SOLO en modo PASSES_AND_DIES para asegurar desintegración terminal.">Damage for lethal teleportation.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Language Info Card -->
+                <div class="long-card" style="margin-top: 25px; border-left: 4px solid var(--primary);">
+                    <h4 data-en="Language Customization" data-es="Personalización de Idiomas"><i class="fas fa-language"></i> Personalización de Idiomas</h4>
+                    <p class="en">All in-game messages, titles, and notifications are stored in <code>plugins/StarPortal/languages/</code>. You can customize <strong>en.yml</strong> or <strong>es.yml</strong> to translate the plugin to your own language or change the style of the messages.</p>
+                    <p class="es">Todos los mensajes, títulos y notificaciones del juego se encuentran en <code>plugins/StarPortal/languages/</code>. Puedes personalizar <strong>en.yml</strong> o <strong>es.yml</strong> para traducir el plugin a tu propio idioma o cambiar el estilo de los mensajes.</p>
+                    <div style="margin-top: 10px; display: flex; align-items: center; gap: 10px; opacity: 0.9; font-size: 0.95rem;">
+                        <i class="fas fa-palette text-pos"></i>
+                        <span data-en="Tip: Use Minecraft color codes (e.g. §c for red, §6 for gold) within the YAML files."
+                              data-es="Consejo: Usa los códigos de colores de Minecraft (ej: §c para rojo, §6 para dorado) dentro de los archivos YAML.">
+                              Consejo: Usa los códigos de colores de Minecraft dentro de los archivos YAML.
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- GUI Explorer -->
+            <section id="gui" class="page-view">
+                <h2 data-en="Interface Manual (GUI)" data-es="Manual de Interfaces (GUI)">Interface Manual (GUI)</h2>
+                <div class="gui-explorer">
+                    <!-- Control Panel (DHD) -->
+                    <div class="gui-screen">
+                        <h4 data-en="1. Control Panel (DHD - Open with Lectern)" data-es="1. Panel de Control (DHD - Abrir con Atril)">1. Panel de Control (DHD)</h4>
+                        <div class="slot-grid">
+                            <div class="slot-item">
+                                <div class="slot-icon"><img src="img/minecraft_paper.png" alt="Paper"></div>
+                                <div class="slot-info">
+                                    <h5 data-en="Terminal Information" data-es="Datos de la Terminal">Datos de la Terminal</h5>
+                                    <p data-en="Displays name, address, and current portal open time." data-es="Muestra el nombre, dirección y el tiempo de apertura del portal."></p>
+                                </div>
+                            </div>
+                            <div class="slot-item">
+                                <div class="slot-icon"><img src="img/minecraft_compass.png" alt="Compass"></div>
+                                <div class="slot-info">
+                                    <h5 data-en="Manual Dialing" data-es="Marcado Manual">Marcado Manual</h5>
+                                    <p data-en="Opens the input screen for 6-digit addresses." data-es="Abre la pantalla de entrada para direcciones de 6 dígitos."></p>
+                                </div>
+                            </div>
+                            <div class="slot-item">
+                                <div class="slot-icon"><img src="img/minecraft_book.png" alt="Book"></div>
+                                <div class="slot-info">
+                                    <h5 data-en="Saved Addresses" data-es="Destinos Guardados">Destinos Guardados</h5>
+                                    <p data-en="Quickly select your favorite destinations and common routes." data-es="Selecciona rápidamente tus destinos favoritos y rutas habituales."></p>
+                                </div>
+                            </div>
+                            <div class="slot-item">
+                                <div class="slot-icon"><img src="img/minecraft_ender_pearl.png" alt="Ender Pearl"></div>
+                                <div class="slot-info">
+                                    <h5 data-en="Energy Core" data-es="Depósito Energía">Depósito Energía</h5>
+                                    <p data-en="Check energy level and recharge with Ender Pearls." data-es="Comprueba la energía y recarga con Perlas de Ender."></p>
+                                </div>
+                            </div>
+                            <div class="slot-item">
+                                <div class="slot-icon"><img src="img/minecraft_iron_trapdoor.png" alt="Trapdoor"></div>
+                                <div class="slot-info">
+                                    <h5 data-en="Iris Force-Field" data-es="Campo de Fuerza">Campo de Fuerza</h5>
+                                    <p data-en="Open or close the shield (if installed)." data-es="Abre o cierra el escudo (si está instalado)."></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Config Panel (Core) -->
+                    <div class="gui-screen">
+                        <h4 data-en="2. Config Panel (Core - Open with Beacon)" data-es="2. Panel de Configuración (Núcleo - Abrir con Faro)">2. Panel de Configuración (Núcleo)</h4>
+                        <div class="slot-grid">
+                            <div class="slot-item">
+                                <div class="slot-icon"><img src="img/minecraft_paper.png" alt="Paper"></div>
+                                <div class="slot-info">
+                                    <h5 data-en="Core Information" data-es="Datos del Faro">Datos del Faro</h5>
+                                    <p data-en="Displays name, address, and how long the portal has been open." data-es="Muestra el nombre, dirección y el tiempo de apertura del portal."></p>
+                                </div>
+                            </div>
+                            <div class="slot-item">
+                                <div class="slot-icon"><img src="img/minecraft_name_tag.png" alt="Name Tag"></div>
+                                <div class="slot-info">
+                                    <h5 data-en="Rename Portal" data-es="Renombrar Portal">Renombrar Portal</h5>
+                                    <p data-en="Update the portal's identifier (e.g. 'Industrial Site')." data-es="Cambia el identificador visual del portal."></p>
+                                </div>
+                            </div>
+                            <div class="slot-item">
+                                <div class="slot-icon"><img src="img/minecraft_netherite_block.png" alt="Netherite Block"></div>
+                                <div class="slot-info">
+                                    <h5 data-en="Iris System" data-es="Sistema Iris">Sistema Iris</h5>
+                                    <p data-en="Install protection (Requires 1 block in main hand)." data-es="Instala la protección (Requiere 1 bloque en mano)."></p>
+                                </div>
+                            </div>
+                            <div class="slot-item">
+                                <div class="slot-icon"><img src="img/minecraft_player_head.png" alt="Player Head"></div>
+                                <div class="slot-info">
+                                    <h5 data-en="Administrative Whitelist" data-es="Lista Blanca Administrativa">Lista Blanca Administrativa</h5>
+                                    <p data-en="Authorize players to manage the portal (rename, install iris, or decommission)." data-es="Autoriza jugadores para gestionar el portal (renombrar, instalar iris o desmantelar)."></p>
+                                </div>
+                            </div>
+                            <div class="slot-item">
+                                <div class="slot-icon"><img src="img/minecraft_tnt.png" alt="TNT"></div>
+                                <div class="slot-info">
+                                    <h5 data-en="Decommission" data-es="Desmantelar Núcleo">Desmantelar Núcleo</h5>
+                                    <p data-en="Destroys structure and recovers energy balance." data-es="Destruye la estructura y recupera la energía acumulada."></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Logistics & Entities -->
+            <section id="logistics" class="page-view">
+                <h2 data-en="Logistics & Entity Transport" data-es="Logística y Transporte de Entidades">Logistics & Entity Transport</h2>
+                <div class="long-card">
+                    <p class="en">StarPortal is designed for seamless inter-faction communication and supply management. The event horizon preserves the momentum and orientation of everything crossing it.</p>
+                    <p class="es">StarPortal está diseñado para la comunicación fluida entre facciones y la gestión de suministros. El horizonte de eventos preserva el impulso y la orientación de todo lo que lo cruza.</p>
+                    <div class="table-card">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th data-en="Entity Type" data-es="Tipo de Entidad">Tipo de Entidad</th>
+                                    <th data-en="Utility" data-es="Utilidad">Utilidad</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-en="Players & Mobs" data-es="Jugadores y Mobs">Jugadores y Mobs</td>
+                                    <td data-en="Instant travel. Preserves health, effects, and inventory. Ideal for trade or server events." data-es="Viaje instantáneo. Preserva vida, efectos e inventario. Ideal para comercio o eventos en el servidor.">Viaje instantáneo.</td>
+                                </tr>
+                                <tr>
+                                    <td data-en="Minecarts (All types)" data-es="Vagonetas (Todo tipo)">Vagonetas (Todo tipo)</td>
+                                    <td data-en="Automated logistics. Minecarts keep their velocity, allowing for cross-dimensional rail networks." data-es="Logística automatizada. Las vagonetas mantienen su velocidad, permitiendo redes ferroviarias interdimensionales.">Líneas de suministros.</td>
+                                </tr>
+                                <tr>
+                                    <td data-en="Projectiles (Arrows/Pearls)" data-es="Proyectiles (Flechas/Perlas)">Proyectiles (Flechas/Perlas)</td>
+                                    <td data-en="Tactical use. Arrows pass through the horizon, allowing for base defense or long-range interaction." data-es="Uso táctico. Las flechas cruzan el horizonte, permitiendo defensa de bases o interacción a larga distancia.">Interacción entre mundos.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Permissions -->
+            <section id="perms" class="page-view">
+                <h2 data-en="Permissions" data-es="Permisos">Permissions</h2>
+                <div class="table-card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th data-en="Permission" data-es="Permiso">Permiso</th>
+                                <th data-en="Default" data-es="Por Defecto">Por Defecto</th>
+                                <th data-en="Description" data-es="Descripción">Descripción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>starportal.create</code></td>
+                                <td><span class="badge-status pos" data-en="TRUE" data-es="ACTIVADO">ACTIVADO</span></td>
+                                <td data-en="Grants the ability to register and own portals by interacting with a Beacon." data-es="Permite registrar y ser propietario de nuevos portales al interactuar con un Faro (Beacon).">Permite registrar y ser propietario de nuevos portales al interactuar con un Faro (Beacon).</td>
+                            </tr>
+                            <tr>
+                                <td><code>starportal.admin</code></td>
+                                <td><span class="badge-status op" data-en="OP ONLY" data-es="SOLO OP">SOLO OP</span></td>
+                                <td data-en="Full administrative control over all portals and configurations." data-es="Control administrativo total sobre todos los portales y configuraciones.">Control administrativo total sobre todos los portales y configuraciones.</td>
+                            </tr>
+                            <tr>
+                                <td><code>starportal.list</code></td>
+                                <td><span class="badge-status op" data-en="OP ONLY" data-es="SOLO OP">SOLO OP</span></td>
+                                <td data-en="Allows viewing the list of registered portals using the command." data-es="Permite visualizar la lista de portales registrados mediante el comando.">Permite visualizar la lista de portales registrados mediante el comando.</td>
+                            </tr>
+                            <tr>
+                                <td><code>starportal.help</code></td>
+                                <td><span class="badge-status op" data-en="OP ONLY" data-es="SOLO OP">SOLO OP</span></td>
+                                <td data-en="Grants access to the command help interface." data-es="Permite el acceso a la interfaz de ayuda de comandos.">Permite el acceso a la interfaz de ayuda de comandos.</td>
+                            </tr>
+                            <tr>
+                                <td><code>starportal.reload</code></td>
+                                <td><span class="badge-status op" data-en="OP ONLY" data-es="SOLO OP">SOLO OP</span></td>
+                                <td data-en="Ability to reload the plugin configuration and messages." data-es="Habilidad para recargar la configuración y los mensajes del plugin.">Habilidad para recargar la configuración y los mensajes del plugin.</td>
+                            </tr>
+                            <tr>
+                                <td><code>starportal.infinite</code></td>
+                                <td><span class="badge-status neg" data-en="FALSE" data-es="DESACTIVADO">DESACTIVADO</span></td>
+                                <td data-en="Bypasses the maximum portal limit per player." data-es="Ignora el límite máximo de portales por jugador.">Ignora el límite máximo de portales por jugador.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <!-- Privacy -->
+            <section id="privacy" class="page-view">
+                <h2 data-en="Privacy & Whitelist" data-es="Privacidad y Whitelist">Privacy & Whitelist</h2>
+                <div class="long-card">
+                    <p class="en">StarPortal prioritizes your server's privacy. Connection and status messages are private by default, appearing only to the player initiating the link.</p>
+                    <p class="es">StarPortal prioriza la privacidad en tu servidor. Los mensajes de estado y marcado son privados por defecto, mostrándose únicamente al jugador que inicia la conexión.</p>
+                    <h4 data-en="Administrative Whitelist" data-es="Gestión de Lista Blanca">Gestión de Lista Blanca</h4>
+                    <p data-en="Through the portal core (Beacon) configuration menu, you can authorize other players to your portal's administrative access list. Whitelisted players can rename the portal, install Iris systems, or decommission the structure." data-es="Desde el menú de configuración del núcleo (Interactuando con el Faro) puedes autorizar a otros jugadores en la lista administrativa. Los jugadores en lista blanca podrán renombrar el portal, gestionar el sistema Iris o desmantelar el núcleo."></p>
+                    
+                    <h4 data-en="Access Matrix" data-es="Matriz de Permisos">Matriz de Permisos</h4>
+                    <div class="table-card">
+                        <table class="matrix-table">
+                            <thead>
+                                <tr>
+                                    <th data-en="Action" data-es="Acción">Acción</th>
+                                    <th data-en="General" data-es="General">General</th>
+                                    <th data-en="Whitelist" data-es="Whitelist" class="text-center">Whitelist</th>
+                                    <th data-en="Owner" data-es="Dueño" class="text-center">Dueño</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-en="Dialing / Use DHD" data-es="Marcar / Usar DHD">Marcar / Usar DHD</td>
+                                    <td class="text-center"><i class="fa-solid fa-check text-pos"></i></td>
+                                    <td class="text-center"><i class="fa-solid fa-check text-pos"></i></td>
+                                    <td class="text-center"><i class="fa-solid fa-check text-pos"></i></td>
+                                </tr>
+                                <tr>
+                                    <td data-en="Add Fuel (Ender Pearls)" data-es="Recargar Energía (Perlas)">Recargar Energía (Perlas)</td>
+                                    <td class="text-center"><i class="fa-solid fa-check text-pos"></i></td>
+                                    <td class="text-center"><i class="fa-solid fa-check text-pos"></i></td>
+                                    <td class="text-center"><i class="fa-solid fa-check text-pos"></i></td>
+                                </tr>
+                                <tr>
+                                    <td data-en="Open Config (Beacon)" data-es="Configuración (Faro)">Configuración (Faro)</td>
+                                    <td class="text-center"><i class="fa-solid fa-xmark text-neg"></i></td>
+                                    <td class="text-center"><i class="fa-solid fa-check text-pos"></i></td>
+                                    <td class="text-center"><i class="fa-solid fa-check text-pos"></i></td>
+                                </tr>
+                                <tr>
+                                    <td data-en="Rename Portal" data-es="Renombrar Portal">Renombrar Portal</td>
+                                    <td class="text-center"><i class="fa-solid fa-xmark text-neg"></i></td>
+                                    <td class="text-center"><i class="fa-solid fa-check text-pos"></i></td>
+                                    <td class="text-center"><i class="fa-solid fa-check text-pos"></i></td>
+                                </tr>
+                                <tr>
+                                    <td data-en="Manage Iris / Protection" data-es="Gestionar Iris / Protección">Gestionar Iris / Protección</td>
+                                    <td class="text-center"><i class="fa-solid fa-xmark text-neg"></i></td>
+                                    <td class="text-center"><i class="fa-solid fa-check text-pos"></i></td>
+                                    <td class="text-center"><i class="fa-solid fa-check text-pos"></i></td>
+                                </tr>
+                                <tr>
+                                    <td data-en="Manage DHD (Link/Unlink)" data-es="Gestión del DHD (Vincular/Romper)">Gestión del DHD (Vincular/Romper)</td>
+                                    <td class="text-center"><i class="fa-solid fa-xmark text-neg"></i></td>
+                                    <td class="text-center"><i class="fa-solid fa-check text-pos"></i></td>
+                                    <td class="text-center"><i class="fa-solid fa-check text-pos"></i></td>
+                                </tr>
+                                <tr>
+                                    <td data-en="Decommission Structure" data-es="Desmantelar Estructura">Desmantelar Estructura</td>
+                                    <td class="text-center"><i class="fa-solid fa-xmark text-neg"></i></td>
+                                    <td class="text-center"><i class="fa-solid fa-xmark text-neg"></i></td>
+                                    <td class="text-center"><i class="fa-solid fa-check text-pos"></i></td>
+                                </tr>
+                                <tr>
+                                    <td data-en="Manage Whitelist" data-es="Gestionar Whitelist">Gestionar Whitelist</td>
+                                    <td class="text-center"><i class="fa-solid fa-xmark text-neg"></i></td>
+                                    <td class="text-center"><i class="fa-solid fa-xmark text-neg"></i></td>
+                                    <td class="text-center"><i class="fa-solid fa-check text-pos"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Commands -->
+            <section id="cmds" class="page-view">
+                <h2 data-en="System Commands" data-es="Comandos del Sistema">System Commands</h2>
+                <div class="long-card">
+                    <div class="cmd-item"><code>/stp help</code> - <span data-en="Show all available commands." data-es="Muestra todos los comandos disponibles.">Show all available commands.</span></div>
+                    <div class="cmd-item"><code>/stp list</code> - <span data-en="List all existing addresses and their current pearl balance." data-es="Muestra las direcciones existentes y sus inventarios de perlas.">List all existing addresses and their current pearl balance.</span></div>
+                    <div class="cmd-item"><code>/stp reload</code> - <span data-en="Reload plugin configuration and messages." data-es="Recarga la configuración y mensajes del plugin.">Reload plugin configuration and messages.</span></div>
+                </div>
+            </section>
+
+            <!-- FAQ -->
+            <section id="faq" class="page-view">
+                <h2 data-en="Troubleshooting" data-es="Solución de Problemas">Troubleshooting</h2>
+                <div class="long-card">
+                    <div class="faq-item">
+                        <h4 data-en="Why can't I dial a portal?" data-es="¿Por qué no puedo marcar un portal?">Why can't I dial a portal?</h4>
+                        <p data-en="Verify that the destination portal has a correctly linked DHD and that the Ender Pearl balance is sufficient for the connection." data-es="Verifica que el portal de destino tenga un DHD correctamente vinculado y que el saldo de Perlas de Ender sea suficiente para la conexión.">Verify that the destination portal has a correctly linked DHD and enough Pearls.</p>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="footer">
+                <div class="f-left">
+                    <span class="en">Developed by <strong>Danex360</strong></span>
+                    <span class="es">Desarrollado por <strong>Danex360</strong></span>
+                </div>
+                <div class="f-right">&copy; 2026 Copyright <strong>StarPortal</strong></div>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        function setLang(lang) {
+            document.body.className = "lang-" + lang + " theme-green";
+            document.querySelectorAll('.lang-picker button').forEach(b => b.classList.remove('active'));
+            const btn = document.getElementById('btn-' + lang);
+            if (btn) btn.classList.add('active');
+            document.querySelectorAll('[data-en]').forEach(el => el.innerText = el.getAttribute('data-' + lang));
+            localStorage.setItem('sp_wiki_lang', lang);
+        }
+
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+            document.querySelector('.sidebar-overlay').classList.toggle('active');
+        }
+
+        // Navigation with Hash persistence
+        function navigate(pageId, behavior = 'smooth') {
+            document.querySelectorAll('.page-view').forEach(v => v.classList.remove('active'));
+            const target = document.getElementById(pageId);
+            if (target) target.classList.add('active');
+            
+            document.querySelectorAll('.nav-btn').forEach(l => l.classList.remove('active'));
+            const btn = document.getElementById('nav-' + pageId);
+            if (btn) btn.classList.add('active');
+            
+            // Close mobile menu
+            document.querySelector('.sidebar').classList.remove('open');
+            document.querySelector('.sidebar-overlay').classList.remove('active');
+            
+            window.location.hash = pageId;
+            if (behavior !== 'none') {
+                window.scrollTo({top: 0, behavior: behavior});
+            }
+        }
+
+        // Initial Load Persistence
+        const init = () => {
+            if ('scrollRestoration' in history) {
+                history.scrollRestoration = 'manual';
+            }
+
+            // 1. Restore Language
+            const savedLang = localStorage.getItem('sp_wiki_lang') || 'en';
+            setLang(savedLang);
+
+            // 2. Restore Page (from Hash or Default)
+            const currentHash = window.location.hash.substring(1);
+            const startPage = (currentHash && document.getElementById(currentHash)) ? currentHash : 'welcome';
+            navigate(startPage, 'none'); 
+
+            // 3. Force scroll to top after render and show content
+            setTimeout(() => {
+                window.scrollTo(0, 0);
+                document.querySelector('.main-content').classList.add('ready');
+            }, 100);
+        };
+
+        init();
+    </script>
+</body>
+</html>

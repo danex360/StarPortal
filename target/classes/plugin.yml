@@ -1,0 +1,36 @@
+name: StarPortal
+version: 1.0.0
+main: me.danex360.starportal.StarPortal
+author: danex360
+api-version: '1.21'
+author: danex360
+description: A Stargate-inspired teleportation plugin.
+commands:
+  stp:
+    description: Main command for StarPortal.
+    usage: /stp <reload|list|help>
+    aliases: [starportal]
+permissions:
+  starportal.admin:
+    description: Allows administrative access to StarPortal.
+    default: op
+    children:
+      starportal.help: true
+      starportal.list: true
+      starportal.reload: true
+  starportal.help:
+    description: Allows using /stp help.
+    default: op
+  starportal.list:
+    description: Allows using /stp list.
+    default: op
+  starportal.reload:
+    description: Allows using /stp reload.
+    default: op
+  starportal.create:
+    description: Allows creating and registering new StarPortals.
+    default: true
+  starportal.infinite:
+    description: Bypasses the maximum portal limit per player.
+    default: false
+
