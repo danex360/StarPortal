@@ -25,7 +25,7 @@ if %ERRORLEVEL% equ 0 (
     echo.
     echo ========================================
     echo   BUILD SUCCESSFUL!
-    echo   JAR: target\StarPortal-1.0-SNAPSHOT.jar
+    echo   JAR: target\StarPortal-1.0.jar
     echo ========================================
 ) else (
     echo.
